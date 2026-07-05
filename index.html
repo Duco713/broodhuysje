@@ -116,9 +116,50 @@
         .tonal-divider { height: 1px; background-color: #8c8279; opacity: 0.2; }
         /* Zorg dat ankerlinks niet onder de vaste header verdwijnen */
         section[id] { scroll-margin-top: 96px; }
+
+        /* Hero: langzame Ken Burns-inzoom */
+        .hero-zoom { animation: kenburns 32s ease-in-out infinite alternate; transform-origin: center; will-change: transform; }
+        @keyframes kenburns { from { transform: scale(1); } to { transform: scale(1.08); } }
+
+        /* Gefaseerd opkomen (bij laden / bij scrollen) */
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+        .hero-stagger > * { opacity: 0; animation: fadeUp .8s ease-out forwards; }
+        .hero-stagger > *:nth-child(1) { animation-delay: .15s; }
+        .hero-stagger > *:nth-child(2) { animation-delay: .30s; }
+        .hero-stagger > *:nth-child(3) { animation-delay: .45s; }
+        .hero-stagger > *:nth-child(4) { animation-delay: .60s; }
+        .stagger > * { opacity: 0; }
+        .stagger.active > * { animation: fadeUp .7s ease-out forwards; }
+        .stagger.active > *:nth-child(1) { animation-delay: .05s; }
+        .stagger.active > *:nth-child(2) { animation-delay: .15s; }
+        .stagger.active > *:nth-child(3) { animation-delay: .25s; }
+        .stagger.active > *:nth-child(4) { animation-delay: .35s; }
+        .stagger.active > *:nth-child(5) { animation-delay: .45s; }
+        .stagger.active > *:nth-child(6) { animation-delay: .55s; }
+
+        /* Header: subtiele schaduw zodra je scrolt */
+        header { transition: box-shadow .3s ease, background-color .3s ease; }
+        header.scrolled { box-shadow: 0 6px 24px rgba(33, 26, 20, 0.10); }
+
+        /* Nav: onderstreping die inschuift bij hover / actief */
+        .nav-link { position: relative; }
+        .nav-link::after { content: ''; position: absolute; left: 0; bottom: -4px; width: 100%; height: 2px; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform .3s ease; }
+        .nav-link:hover::after, .nav-link.nav-active::after { transform: scaleX(1); }
+        .nav-link.nav-active { color: #775a19; }
+
+        /* Knoppen: subtiele glans bij hover */
+        .btn-shine { position: relative; overflow: hidden; }
+        .btn-shine::after { content: ''; position: absolute; top: 0; left: -75%; width: 50%; height: 100%; background: linear-gradient(120deg, transparent, rgba(255,255,255,.35), transparent); transform: skewX(-20deg); pointer-events: none; }
+        .btn-shine:hover::after { animation: shine .8s ease; }
+        @keyframes shine { to { left: 125%; } }
+
         @media (prefers-reduced-motion: reduce) {
             html { scroll-behavior: auto; }
             .reveal { opacity: 1; transform: none; transition: none; }
+            .hero-zoom { animation: none; }
+            .hero-stagger > *, .stagger > * { opacity: 1; animation: none; }
+            .nav-link::after { transition: none; }
+            .btn-shine::after { display: none; }
         }
     </style>
 </head>
@@ -127,12 +168,12 @@
 <nav class="flex justify-between items-center h-full px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
 <a href="#home" class="text-headline-sm font-headline-sm text-primary tracking-tight">'t Broodhuysje</a>
 <ul class="hidden md:flex space-x-12 items-center">
-<li><a class="font-label-md text-label-md uppercase tracking-widest text-primary border-b-2 border-primary pb-1" href="#home">Home</a></li>
-<li><a class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="#specialiteiten">Specialiteiten</a></li>
-<li><a class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="#over-ons">Over Ons</a></li>
-<li><a class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="#contact">Contact</a></li>
+<li><a class="nav-link nav-active font-label-md text-label-md uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="#home">Home</a></li>
+<li><a class="nav-link font-label-md text-label-md uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="#specialiteiten">Specialiteiten</a></li>
+<li><a class="nav-link font-label-md text-label-md uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="#over-ons">Over Ons</a></li>
+<li><a class="nav-link font-label-md text-label-md uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="#contact">Contact</a></li>
 </ul>
-<a href="#contact" class="hidden md:inline-block bg-primary-container text-white px-8 py-3 rounded-lg font-label-md text-label-md uppercase tracking-widest hover:opacity-90 transition-all active:scale-95">
+<a href="#contact" class="btn-shine hidden md:inline-block bg-primary-container text-white px-8 py-3 rounded-lg font-label-md text-label-md uppercase tracking-widest hover:opacity-90 transition-all active:scale-95">
             Bestel Nu
         </a>
 <button id="menu-toggle" class="md:hidden text-primary p-2 -mr-2" aria-label="Menu openen" aria-expanded="false" aria-controls="mobile-menu">
@@ -154,17 +195,17 @@
 <!-- Hero Section -->
 <section class="relative min-h-[85vh] flex items-center pt-20 overflow-hidden" id="home">
 <div class="absolute inset-0 z-0">
-<div class="w-full h-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDQM-7vV1iiFrM7RTGAGzOzUQ_Oe0QRD0QC-zCVXb1RlebScIVPNDX6fxX7ECPH5Y_P8uVF4PVSn7RrB41jVVE1sU3sJ8ZysIr63ILh46Yl8pX2zBPKUks0pD91lAbN8cm8GuIdTaRhrtoKzh7Y-i_OlZNAp_v-v9I798LXbdJMl_u2M3NyNOuxhPatlka-9kUATOrIzfih4ZGLaVEyFrlLbUdAAXOU7VdLi04GhQxKCMHmdEjHMeNUecyzSAbUm5910A')"></div>
-<div class="absolute inset-0 bg-gradient-to-r from-surface/60 via-surface/20 to-transparent"></div>
+<div class="w-full h-full bg-cover bg-center hero-zoom" style="background-image: url(Images/hero.jpg)"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-surface via-surface/75 to-transparent"></div>
 </div>
 <div class="relative z-10 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
-<div class="max-w-2xl space-y-8 reveal active">
+<div class="max-w-2xl space-y-8 hero-stagger">
 <span class="inline-block font-label-md text-label-md uppercase tracking-[0.2em] text-primary border-b border-primary/40 pb-2">Familiebakkerij sinds 1980</span>
 <h1 class="font-display-lg text-display-lg-mobile md:text-display-lg leading-tight text-on-background">Het geheim van <i class="italic font-normal">echt</i> ambachtelijk brood.</h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg">In het hart van Valkenswaard bakken wij dagelijks met passie, geduld en de beste lokale granen. Proef de geschiedenis in elke hap.</p>
+<p class="font-body-lg text-body-lg text-on-surface max-w-lg">In het hart van Valkenswaard bakken wij dagelijks met passie, geduld en de beste lokale granen. Proef de geschiedenis in elke hap.</p>
 <div class="flex flex-col sm:flex-row gap-4">
-<a class="text-center bg-primary text-white px-10 py-5 rounded-lg font-label-md text-label-md uppercase tracking-widest hover:opacity-90 transition-all shadow-lg" href="#specialiteiten">Ontdek het Assortiment</a>
-<a class="text-center border border-secondary text-secondary px-10 py-5 rounded-lg font-label-md text-label-md uppercase tracking-widest hover:bg-secondary/5 transition-all" href="#over-ons">Ons Verhaal</a>
+<a class="btn-shine text-center bg-primary text-white px-10 py-5 rounded-lg font-label-md text-label-md uppercase tracking-widest hover:opacity-90 transition-all shadow-lg" href="#specialiteiten">Ontdek het Assortiment</a>
+<a class="text-center border border-on-surface/40 text-on-surface bg-surface/60 px-10 py-5 rounded-lg font-label-md text-label-md uppercase tracking-widest hover:bg-surface transition-all" href="#over-ons">Ons Verhaal</a>
 </div>
 </div>
 </div>
@@ -174,7 +215,7 @@
 <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
 <div class="reveal">
 <div class="aspect-[4/5] relative bg-surface-container-high rounded-xl overflow-hidden border border-outline-variant/20">
-<img alt="Handen die deeg kneden" class="w-full h-full object-cover" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTinQFiXU0fD6hu7PUUL4R7u_yIEznRpG_HH97nkCGxAm8KUnqMMDItUI1Gr48MTnIr1MJV3iFpI6JJ8_YpbWlil-RrjiLQR-GqdVKONcHsahtg7cMNcsphQQfO9Ruabo-qqT-TX6_hg1qNYNAcldI0reGTpRSVYbDqiLt5x2Nsd6mL_Ybph1WOSAkX7gNfRcgHwJqqYMO7czh-JeaVUhC3vBvLfX8eD2iVqaGdZGogphxJcgb9vFr"/>
+<img alt="Handen die deeg kneden" class="w-full h-full object-cover" loading="lazy" src="Images/kneden.jpg"/>
 <div class="absolute bottom-6 left-6 bg-white/95 backdrop-blur p-6 rounded-lg border border-outline-variant/10 shadow-sm max-w-xs">
 <p class="font-headline-sm text-headline-sm text-primary italic mb-2">"Passie is ons belangrijkste ingrediënt."</p>
 <p class="font-label-sm text-label-sm text-secondary uppercase">Meesterbakker Maikel</p>
@@ -216,11 +257,11 @@
                     Van ons karakteristieke zuurdesem tot verfijnd luxe gebak; elke creatie vertelt een verhaal van traditie, geduld en de allerbeste ingrediënten.
                 </p>
 </header>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter mb-24 reveal">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter mb-24 stagger">
 <!-- Product 1 -->
 <div class="bg-surface-container-lowest border border-outline-variant/20 overflow-hidden flex flex-col group cursor-pointer hover:shadow-xl transition-all">
 <div class="aspect-[16/9] overflow-hidden relative">
-<img alt="Klassiek zuurdesembrood" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNVD8OfXY3A0BldC-eiU-8fx-ShPXvSNAsxxbdvcXduk_cuSBGSiRHJjTAm2WpoMj2nZhOhV0YRjU2rDOEOjt4DiaT8cqxDVUhy3OzCFMfrdeOBf9S3oEGDo_ryp2SxicWHyfGmnZJp6VEnvK2OH4ICVK3Nt6ZYfdC12JrwmZ22A8its1BtCWa_r4Pl3uJI8mR2SkEx75xHyD9uWKt8SRWpiRkcqp4WarXa4jCzqoOuxaS76MuyULs"/>
+<img alt="Klassiek zuurdesembrood" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" src="Images/zuurdesem.jpg"/>
 <div class="absolute top-4 right-4 bg-primary text-white px-3 py-1 font-label-sm text-label-sm uppercase">Klassieker</div>
 </div>
 <div class="p-8">
@@ -234,7 +275,7 @@
 <!-- Product 2 -->
 <div class="bg-surface-container-lowest border border-outline-variant/20 overflow-hidden flex flex-col group cursor-pointer hover:shadow-xl transition-all">
 <div class="aspect-[16/9] overflow-hidden relative">
-<img alt="Volkoren oergranenbrood" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiMFYScDY53mtRt_141k-RoEFAgY_4rOUzBJDJU2-Z7L8fQkhZUTXn9WtIx0X0GIeHJZzmNdeEJyVztmyKQlaeUsaC1b_9EFP8AR5T8mrQd23R-McRNnKSosff3xiY9lZw9SApkEYGLMth22eIn-DaNGr65-MvnPdmkNtFrFe6_SOXiBTlFHG6jqXBo34d38VJspiTrJSjumpHMNKlvhnIS8aA1XI1qYv4_D8hEyNM6jECfwkJqFR9"/>
+<img alt="Volkoren oergranenbrood" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" src="Images/volkoren.jpg"/>
 </div>
 <div class="p-8">
 <div class="flex justify-between items-baseline mb-4">
@@ -246,51 +287,51 @@
 </div>
 </div>
 <!-- Specialties Column List -->
-<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter mb-32 reveal">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter mb-32 stagger">
 <div class="bg-white border border-outline-variant/10 p-6 flex flex-col items-center text-center group cursor-pointer hover:shadow-lg transition-all">
 <div class="aspect-square w-full overflow-hidden mb-6">
-<img alt="Bossche Bol" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYE1pfCIZ9zFvVCs_yN2Iz_kGEA_LH4IRe3FdTcAJlJiWGu6_4J44fqR4yP21TnNunRg4Z0zspzWW6T4jBz1A0lv2Gw6GimTbJFzakAbLF6BqezFrZpgJs8JBmk5S7bBbOax2pb3hF-4wdEpBPWygIBHmAkOnqKdPpFZTrgThDF1jd5woF8_d9uzKV2j6mPo3rr6ojqVEiCEI2RHAiTlrXgsc61fgIWPOU07UON_4-IjnQKp4iXVCb"/>
+<img alt="Bossche Bol" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" src="Images/bossche-bol.jpg"/>
 </div>
 <h4 class="font-headline-sm text-[20px] mb-2">Bossche Bol</h4>
 <p class="font-label-md text-primary">€ 3,95</p>
 </div>
 <div class="bg-white border border-outline-variant/10 p-6 flex flex-col items-center text-center group cursor-pointer hover:shadow-lg transition-all">
 <div class="aspect-square w-full overflow-hidden mb-6">
-<img alt="Fruittaartje" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSfjIRF1D805bH5gFnlZeu4YbvATBGIa7Q0GI0CYIDk_fzk1qOx1KifJK9yEjNvNxTPSVyNqpTOiqe_LmaTvDsfETvtXoLwcabKejw1NSQy543n8i55KdsyP4-B1mVFcidBZP7qI6sb0z32GzSNffGd_j8tEuNNFQqv-rzhuHbtnBiW0vE6Xpstv08UyN61VPyZ-B5jQ-o5tucKSEOuIXiTX_jIdXudSvm5mXluiSYPp6sEsaAOHWe"/>
+<img alt="Worstenbroodje" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" src="Images/worstenbroodje.jpg"/>
 </div>
-<h4 class="font-headline-sm text-[20px] mb-2">Fruittaartje</h4>
-<p class="font-label-md text-primary">€ 4,50</p>
+<h4 class="font-headline-sm text-[20px] mb-2">Worstenbroodje</h4>
+<p class="font-label-md text-primary">€ 2,95</p>
 </div>
 <div class="bg-white border border-outline-variant/10 p-6 flex flex-col items-center text-center group cursor-pointer hover:shadow-lg transition-all">
 <div class="aspect-square w-full overflow-hidden mb-6">
-<img alt="Eclair" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzoLgAaAGGOTj0wKmMrUxGDxEHZD7YS2NIY--ybnZqV0AXnOdGzR7LuoijDqLZ7ZYo7JXVbe2Qr7T8DaEuMVIc8GQofUwtp7kKmD4koX960lAuimc3zKFG_mRsBCP15HMEPvfM7VK-3DGKLO2TVtFbuH7mkU032cc_ytJ6dq_vo13kS__8px8COjZNKXwUhUoM-1LJ3KSqQFW04E9PhwRy5cvuq2bO-C8lRQh_pwMqHn9xvbrFB0g1"/>
+<img alt="Appelflap" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" src="Images/appelflap.jpg"/>
 </div>
-<h4 class="font-headline-sm text-[20px] mb-2">Eclair</h4>
-<p class="font-label-md text-primary">€ 3,50</p>
+<h4 class="font-headline-sm text-[20px] mb-2">Appelflap</h4>
+<p class="font-label-md text-primary">€ 2,75</p>
 </div>
 </div>
-<!-- Seasonal Highlight: Herfstverwennerij -->
+<!-- Seasonal Highlight: Zomerse Verwennerij -->
 <div class="bg-surface-container p-8 md:p-12 rounded-lg relative overflow-hidden reveal">
 <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 <div class="lg:col-span-5">
 <span class="font-label-sm text-label-sm text-primary uppercase tracking-[0.2em] block mb-4">Special van de Maand</span>
-<h2 class="font-headline-md text-headline-md mb-6">Herfstverwennerij</h2>
+<h2 class="font-headline-md text-headline-md mb-6">Zomerse Verwennerij</h2>
 <p class="font-body-lg text-body-lg text-on-surface-variant mb-8 italic">
-                            "Proef de herfst in onze speciaal ontwikkelde pompoen-kaneel broodjes en hartige quiches met bospaddenstoelen."
+                            "Proef de zomer in onze frisse aardbeienvlaai met zoete seizoensaardbeien en luchtige quiches vol groenten van het land."
                         </p>
 <div class="flex flex-col gap-6">
 <div class="flex items-start gap-4">
 <span class="material-symbols-outlined text-primary p-2 bg-primary-fixed rounded-full">bakery_dining</span>
 <div>
-<h4 class="font-label-md text-label-md font-bold mb-1">Pompoen Brioche</h4>
-<p class="font-body-md text-body-md text-on-surface-variant">Zacht, boterig en licht gekruid.</p>
+<h4 class="font-label-md text-label-md font-bold mb-1">Verse Aardbeienvlaai</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Zoete zomeraardbeien op een boterzachte bodem.</p>
 </div>
 </div>
 <div class="flex items-start gap-4">
 <span class="material-symbols-outlined text-primary p-2 bg-primary-fixed rounded-full">restaurant</span>
 <div>
-<h4 class="font-label-md text-label-md font-bold mb-1">Bospaddenstoelen Quiche</h4>
-<p class="font-body-md text-body-md text-on-surface-variant">Met verse tijm en Gruyère kaas.</p>
+<h4 class="font-label-md text-label-md font-bold mb-1">Zomerse Groentequiche</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Met courgette, tomaat en romige geitenkaas.</p>
 </div>
 </div>
 </div>
@@ -300,10 +341,10 @@
 </div>
 <div class="lg:col-span-7 grid grid-cols-2 gap-4">
 <div class="aspect-[4/5]">
-<img alt="Pompoen brioche" class="w-full h-full object-cover rounded-sm shadow-sm" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsGVPw3t1ilPS3pABHJYRGm7sXmVmDPHePnT-1Uh9lend7ZK4XbM-v5zuv5zlzL3bGKTPU3pmikcIb-BkNoH43MdxZsl4JZo-zW_Pmqk3P2UZV3nap1D_3h8ZPSsMnWsr2dUhxGAzjLLlifdcOQiLuu4xaovTyeF9x0-Fxbfn7jlwC23nbvNszshRw1GxGA6yTMoi57fDDvtD6Y7JmvwZb3GesKp4sWrpo8Uqf6UNlBgul6B4f8SKx"/>
+<img alt="Verse aardbeienvlaai" class="w-full h-full object-cover rounded-sm shadow-sm" loading="lazy" src="Images/aardbeienvlaai.jpg"/>
 </div>
 <div class="aspect-[4/5] mt-8">
-<img alt="Bospaddenstoelen quiche" class="w-full h-full object-cover rounded-sm shadow-sm" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFHLhh9CmEZSDSweJUV6lwd23RRSzcBRqZmuPCXub3gFF1F0syhtDfGCOBk27ngNVhlEJ4Ux5_i0hCbFqPuCs7XVEJJ0CdtD3eKrvYbUq8ymfRmyCo4i01caJxQYZPk5BCCp9kl2soQZvrgSnu4i1LDZ1HuelasMuDTWYSxda1REnQI035mayZ2SMdcHQPM4G2hQys_YtdDaYLLSOCrI6_rWd2mPWmjKTuc3xgZTFeyLD8_gnxLsJU"/>
+<img alt="Zomerse groentequiche" class="w-full h-full object-cover rounded-sm shadow-sm" loading="lazy" src="Images/zomerquiche.jpg"/>
 </div>
 </div>
 </div>
@@ -330,7 +371,7 @@
 </div>
 <div class="lg:col-span-7 reveal">
 <div class="relative p-4 bg-white shadow-xl rotate-2">
-<img alt="Hans Vermeulen, oprichter van 't Broodhuysje" class="w-full h-auto grayscale hover:grayscale-0 transition-all duration-700" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPJBnxigdt9_nx_5MiqZH-wlBndnB8gNUkUwzcVRMNmk37WTgD8E7uDpqd2N6_nJHlAhK1i87yIvClL8ASs-2YYfWz2KaVIrnzeyqVQgLmZkbfrHPjkg5JRGlsx_FU-u072xW1q_xU7nzKcBbFuWXdiiN7n0VDkam05Lk6H7XlOMoyJ9H1aMS0z2K4zaJw09j2Cp3iEH3JVljwrJ_9uoeFTk1AdZ-c5JaJKS3V15f1rDCf-e-CQOWb"/>
+<img alt="Hans Vermeulen, oprichter van 't Broodhuysje" class="w-full h-auto grayscale hover:grayscale-0 transition-all duration-700" loading="lazy" src="Images/oprichter.jpg"/>
 <p class="font-label-sm text-label-sm mt-4 text-center text-outline italic">Hans Vermeulen begon de bakkerij in 1980.</p>
 </div>
 </div>
@@ -341,22 +382,22 @@
 <h3 class="font-display-lg text-display-lg-mobile md:text-display-lg mb-4">Onze Filosofie</h3>
 <p class="font-label-md text-label-md text-primary uppercase tracking-[0.3em]">Het Ambacht in Drie Pijlers</p>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-<div class="bg-white p-12 fine-border reveal flex flex-col items-center text-center group hover:bg-surface-container transition-colors duration-500">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 stagger">
+<div class="bg-white p-12 fine-border flex flex-col items-center text-center group hover:bg-surface-container transition-colors duration-500">
 <span class="material-symbols-outlined text-primary text-5xl mb-8 group-hover:scale-110 transition-transform">nature</span>
 <h4 class="font-headline-sm text-headline-sm mb-6">Puur Natuur</h4>
 <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
                             Geen toevoegingen, geen haast. Wij werken uitsluitend met biologische granen van lokale molens en bronwater uit de regio.
                         </p>
 </div>
-<div class="bg-white p-12 fine-border reveal flex flex-col items-center text-center group hover:bg-surface-container transition-colors duration-500">
+<div class="bg-white p-12 fine-border flex flex-col items-center text-center group hover:bg-surface-container transition-colors duration-500">
 <span class="material-symbols-outlined text-primary text-5xl mb-8 group-hover:scale-110 transition-transform">fireplace</span>
 <h4 class="font-headline-sm text-headline-sm mb-6">De Steenoven</h4>
 <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
                             De ziel van onze bakkerij is de authentieke houtgestookte steenoven. De intense hitte zorgt voor een ongeëvenaarde korst.
                         </p>
 </div>
-<div class="bg-white p-12 fine-border reveal flex flex-col items-center text-center group hover:bg-surface-container transition-colors duration-500">
+<div class="bg-white p-12 fine-border flex flex-col items-center text-center group hover:bg-surface-container transition-colors duration-500">
 <span class="material-symbols-outlined text-primary text-5xl mb-8 group-hover:scale-110 transition-transform">schedule</span>
 <h4 class="font-headline-sm text-headline-sm mb-6">Lange Rusttijden</h4>
 <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
@@ -384,7 +425,7 @@
 <h2 class="font-display-lg text-display-lg-mobile md:text-display-lg mb-8">Geliefd in Valkenswaard</h2>
 <!-- Google-samenvatting: pas het cijfer en aantal aan naar de werkelijke waarden -->
 <div class="inline-flex items-center gap-4 bg-white border border-outline-variant/20 rounded-lg px-6 py-4 shadow-sm">
-<span class="font-headline-md text-headline-md text-on-surface leading-none">4,6</span>
+<span id="review-score" class="font-headline-md text-headline-md text-on-surface leading-none">4,6</span>
 <div class="flex flex-col items-start">
 <div class="flex text-primary-container" aria-label="4,6 van de 5 sterren">
 <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">star</span>
@@ -398,7 +439,7 @@
 </div>
 </header>
 <!-- Echte Google-reviews -->
-<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter reveal">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter stagger">
 <figure class="bg-white border border-outline-variant/10 p-8 flex flex-col fine-border">
 <div class="flex text-primary-container mb-6" aria-label="5 van de 5 sterren">
 <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
@@ -479,7 +520,7 @@
 </div>
 <div class="md:col-span-7 relative">
 <div class="aspect-[4/5] md:aspect-video border border-outline-variant/30 overflow-hidden p-4">
-<img alt="Interieur van de bakkerij" class="w-full h-full object-cover" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-RwdKERnwVHC1qXbFadoE3dMdKZfqqkC54AQtCmYnfH_gNymxwS2n0cXUxcvKPgtB-5wRzYzP7cl3o0Zl6LACLHMnC-zapEKEVzcbsosHSPQYD7Czsc26BO_udmsZA65YZokOdE9htkVuNQrpPZQFZ00DQ9v39BX4bF1G5TE-HzVy3dh2HcrlsImpwZM04jODCYXbOvXPcNTkgkvRPf4kxF_Iebq7tSux4uDzJDS6xVB2ZhMZUMcj"/>
+<img alt="Interieur van de bakkerij" class="w-full h-full object-cover" loading="lazy" src="Images/interieur.jpg"/>
 </div>
 <div class="absolute -bottom-8 -left-8 hidden lg:block border border-outline-variant/30 bg-surface p-8 max-w-xs shadow-lg">
 <p class="font-headline-sm text-headline-sm italic mb-2">"Gemaakt met geduld"</p>
@@ -539,7 +580,7 @@
 <label for="cf-bericht" class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">Uw Bericht</label>
 <textarea id="cf-bericht" name="bericht" required class="w-full bg-transparent border-b border-outline-variant/40 focus:border-primary focus:ring-0 py-3 transition-colors outline-none resize-none" placeholder="Schrijf hier uw bericht..." rows="4"></textarea>
 </div>
-<button class="w-full bg-secondary text-white py-5 font-label-md text-label-md uppercase tracking-[0.2em] hover:bg-primary transition-all shadow-lg" type="submit">
+<button class="btn-shine w-full bg-secondary text-white py-5 font-label-md text-label-md uppercase tracking-[0.2em] hover:bg-primary transition-all shadow-lg" type="submit">
                             Verstuur Bericht
                         </button>
 <p id="form-status" class="font-body-md text-body-md text-primary hidden" role="status" aria-live="polite"></p>
@@ -577,7 +618,7 @@
             }
         });
     }, observerOptions);
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    document.querySelectorAll('.reveal, .stagger').forEach(el => observer.observe(el));
 
     // --- Mobiel menu ---
     const menuToggle = document.getElementById('menu-toggle');
@@ -613,16 +654,47 @@
             }
         });
         navLinks.forEach(link => {
-            link.classList.remove('text-primary', 'border-b-2', 'border-primary', 'pb-1');
-            link.classList.add('text-on-surface-variant');
-            if (current && link.getAttribute('href') === '#' + current) {
-                link.classList.remove('text-on-surface-variant');
-                link.classList.add('text-primary', 'border-b-2', 'border-primary', 'pb-1');
-            }
+            link.classList.toggle('nav-active', !!current && link.getAttribute('href') === '#' + current);
         });
     }
-    window.addEventListener('scroll', updateActiveNav, { passive: true });
-    updateActiveNav();
+
+    // --- Header: schaduw zodra je scrolt ---
+    const header = document.querySelector('header');
+    function updateHeader() {
+        header.classList.toggle('scrolled', window.scrollY > 10);
+    }
+
+    function onScroll() {
+        updateActiveNav();
+        updateHeader();
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // --- Reviewscore omhoog laten tellen ---
+    const scoreEl = document.getElementById('review-score');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (scoreEl && !reduceMotion) {
+        const target = 4.6;
+        scoreEl.textContent = '0,0';
+        const scoreObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                scoreObserver.unobserve(entry.target);
+                const duration = 1200;
+                let startTime = null;
+                function tick(now) {
+                    if (startTime === null) startTime = now;
+                    const progress = Math.min((now - startTime) / duration, 1);
+                    scoreEl.textContent = (target * progress).toFixed(1).replace('.', ',');
+                    if (progress < 1) requestAnimationFrame(tick);
+                    else scoreEl.textContent = target.toFixed(1).replace('.', ',');
+                }
+                requestAnimationFrame(tick);
+            });
+        }, { threshold: 0.6 });
+        scoreObserver.observe(scoreEl);
+    }
 
     // --- Contactformulier ---
     const form = document.getElementById('contact-form');
