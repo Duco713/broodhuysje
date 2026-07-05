@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="nl">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>'t Broodhuysje — Ambachtelijke bakkerij in Valkenswaard</title>
+<meta name="description" content="'t Broodhuysje in Valkenswaard bakt dagelijks ambachtelijk brood en gebak met passie, geduld en vakmanschap. Familiebakkerij sinds 1980."/>
+<link rel="icon" type="image/png" href="Images/logo.png"/>
+<!-- Deel-preview (WhatsApp / social) -->
+<meta property="og:title" content="'t Broodhuysje — Ambachtelijke bakkerij in Valkenswaard"/>
+<meta property="og:description" content="Dagelijks vers ambachtelijk brood en gebak. Familiebakkerij sinds 1980, aan de Maastrichterweg in Valkenswaard."/>
+<meta property="og:type" content="website"/>
+<meta property="og:image" content="Images/logo.png"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;family=Work+Sans:ital,wght@0,100..900;1,100..900&amp;family=Pinyon+Script&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed": "#e9e1dc",
+                    "secondary-fixed-dim": "#cdc5c0",
+                    "primary-fixed": "#ffdea5",
+                    "tertiary": "#5e5e5c",
+                    "surface-container-high": "#f3e6db",
+                    "on-tertiary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "surface-container-low": "#fff1e6",
+                    "on-secondary": "#ffffff",
+                    "surface-container": "#f9ece1",
+                    "tertiary-fixed-dim": "#c8c6c4",
+                    "on-surface": "#211a14",
+                    "outline": "#7f7667",
+                    "on-primary-container": "#4e3700",
+                    "tertiary-fixed": "#e4e2df",
+                    "on-error-container": "#93000a",
+                    "on-secondary-fixed-variant": "#4b4642",
+                    "primary-container": "#c5a059",
+                    "outline-variant": "#d1c5b4",
+                    "primary": "#775a19",
+                    "on-background": "#211a14",
+                    "surface-tint": "#775a19",
+                    "secondary-container": "#e6ded9",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-fixed": "#1b1c1a",
+                    "inverse-on-surface": "#fceee4",
+                    "surface-dim": "#e4d8cd",
+                    "on-secondary-container": "#67625e",
+                    "secondary": "#635d5a",
+                    "on-primary-fixed": "#261900",
+                    "on-surface-variant": "#4e4639",
+                    "inverse-surface": "#362f28",
+                    "on-primary": "#ffffff",
+                    "surface-bright": "#fff8f4",
+                    "tertiary-container": "#a6a5a3",
+                    "background": "#fff8f4",
+                    "primary-fixed-dim": "#e9c176",
+                    "on-primary-fixed-variant": "#5d4201",
+                    "on-secondary-fixed": "#1e1b18",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed-variant": "#474745",
+                    "on-tertiary-container": "#3b3b39",
+                    "inverse-primary": "#e9c176",
+                    "surface-container-highest": "#ede0d6",
+                    "surface": "#fff8f4",
+                    "surface-variant": "#ede0d6",
+                    "surface-container-lowest": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin-mobile": "20px",
+                    "container-max": "1200px",
+                    "margin-desktop": "64px",
+                    "gutter": "24px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "label-md": ["Work Sans"],
+                    "headline-md": ["Libre Caslon Text"],
+                    "body-md": ["\"Source Serif 4\""],
+                    "body-lg": ["\"Source Serif 4\""],
+                    "label-sm": ["Work Sans"],
+                    "display-lg": ["Libre Caslon Text"],
+                    "headline-sm": ["Libre Caslon Text"],
+                    "display-lg-mobile": ["Libre Caslon Text"],
+                    "script": ["Pinyon Script"]
+            },
+            "fontSize": {
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+                    "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "400"}],
+                    "display-lg-mobile": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { background-color: #fff8f4; color: #211a14; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+        .gold-script { font-family: 'Pinyon Script', cursive; color: #c5a059; }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .fine-border { border: 1px solid rgba(140, 130, 121, 0.2); }
+        .tonal-divider { height: 1px; background-color: #8c8279; opacity: 0.2; }
+        /* Zorg dat ankerlinks niet onder de vaste header verdwijnen */
+        section[id] { scroll-margin-top: 96px; }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .reveal { opacity: 1; transform: none; transition: none; }
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md antialiased selection:bg-primary-fixed-dim selection:text-on-primary-fixed">
+<header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-outline/10 h-20">
+<nav class="flex justify-between items-center h-full px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<a href="#home" class="text-headline-sm font-headline-sm text-primary tracking-tight">'t Broodhuysje</a>
+<ul class="hidden md:flex space-x-12 items-center">
+<li><a class="font-label-md text-label-md uppercase tracking-widest text-primary border-b-2 border-primary pb-1" href="#home">Home</a></li>
+<li><a class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="#specialiteiten">Specialiteiten</a></li>
+<li><a class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="#over-ons">Over Ons</a></li>
+<li><a class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="#contact">Contact</a></li>
+</ul>
+<a href="#contact" class="hidden md:inline-block bg-primary-container text-white px-8 py-3 rounded-lg font-label-md text-label-md uppercase tracking-widest hover:opacity-90 transition-all active:scale-95">
+            Bestel Nu
+        </a>
+<button id="menu-toggle" class="md:hidden text-primary p-2 -mr-2" aria-label="Menu openen" aria-expanded="false" aria-controls="mobile-menu">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+</nav>
+<!-- Mobiel menu -->
+<div id="mobile-menu" class="md:hidden hidden bg-surface border-b border-outline/10 shadow-lg">
+<ul class="flex flex-col px-margin-mobile py-6 space-y-6">
+<li><a class="block font-label-md text-label-md uppercase tracking-widest text-primary" href="#home">Home</a></li>
+<li><a class="block font-label-md text-label-md uppercase tracking-widest text-on-surface-variant" href="#specialiteiten">Specialiteiten</a></li>
+<li><a class="block font-label-md text-label-md uppercase tracking-widest text-on-surface-variant" href="#over-ons">Over Ons</a></li>
+<li><a class="block font-label-md text-label-md uppercase tracking-widest text-on-surface-variant" href="#contact">Contact</a></li>
+<li><a class="block text-center bg-primary-container text-white px-8 py-3 rounded-lg font-label-md text-label-md uppercase tracking-widest" href="#contact">Bestel Nu</a></li>
+</ul>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative min-h-[85vh] flex items-center pt-20 overflow-hidden" id="home">
+<div class="absolute inset-0 z-0">
+<div class="w-full h-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDQM-7vV1iiFrM7RTGAGzOzUQ_Oe0QRD0QC-zCVXb1RlebScIVPNDX6fxX7ECPH5Y_P8uVF4PVSn7RrB41jVVE1sU3sJ8ZysIr63ILh46Yl8pX2zBPKUks0pD91lAbN8cm8GuIdTaRhrtoKzh7Y-i_OlZNAp_v-v9I798LXbdJMl_u2M3NyNOuxhPatlka-9kUATOrIzfih4ZGLaVEyFrlLbUdAAXOU7VdLi04GhQxKCMHmdEjHMeNUecyzSAbUm5910A')"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-surface/60 via-surface/20 to-transparent"></div>
+</div>
+<div class="relative z-10 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
+<div class="max-w-2xl space-y-8 reveal active">
+<span class="inline-block font-label-md text-label-md uppercase tracking-[0.2em] text-primary border-b border-primary/40 pb-2">Familiebakkerij sinds 1980</span>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg leading-tight text-on-background">Het geheim van <i class="italic font-normal">écht</i> ambachtelijk brood.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg">In het hart van Valkenswaard bakken wij dagelijks met passie, geduld en de beste lokale granen. Proef de geschiedenis in elke hap.</p>
+<div class="flex flex-col sm:flex-row gap-4">
+<a class="text-center bg-primary text-white px-10 py-5 rounded-lg font-label-md text-label-md uppercase tracking-widest hover:opacity-90 transition-all shadow-lg" href="#specialiteiten">Ontdek het Assortiment</a>
+<a class="text-center border border-secondary text-secondary px-10 py-5 rounded-lg font-label-md text-label-md uppercase tracking-widest hover:bg-secondary/5 transition-all" href="#over-ons">Ons Verhaal</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Passie Section -->
+<section class="py-24 bg-surface px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+<div class="reveal">
+<div class="aspect-[4/5] relative bg-surface-container-high rounded-xl overflow-hidden border border-outline-variant/20">
+<img alt="Handen die deeg kneden" class="w-full h-full object-cover" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTinQFiXU0fD6hu7PUUL4R7u_yIEznRpG_HH97nkCGxAm8KUnqMMDItUI1Gr48MTnIr1MJV3iFpI6JJ8_YpbWlil-RrjiLQR-GqdVKONcHsahtg7cMNcsphQQfO9Ruabo-qqT-TX6_hg1qNYNAcldI0reGTpRSVYbDqiLt5x2Nsd6mL_Ybph1WOSAkX7gNfRcgHwJqqYMO7czh-JeaVUhC3vBvLfX8eD2iVqaGdZGogphxJcgb9vFr"/>
+<div class="absolute bottom-6 left-6 bg-white/95 backdrop-blur p-6 rounded-lg border border-outline-variant/10 shadow-sm max-w-xs">
+<p class="font-headline-sm text-headline-sm text-primary italic mb-2">"Passie is ons belangrijkste ingrediënt."</p>
+<p class="font-label-sm text-label-sm text-secondary uppercase">Meesterbakker Maikel</p>
+</div>
+</div>
+</div>
+<div class="reveal">
+<h2 class="font-headline-md text-headline-md text-on-background mb-8">Ambachtelijk gebakken met passie</h2>
+<div class="space-y-6">
+<p class="font-body-lg text-body-lg text-on-surface-variant italic">
+                        Bij 't Broodhuysje geloven we dat tijd de beste smaakmaker is. Daarom laten we onze degen tot wel 48 uur rijpen.
+                    </p>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                        Onze bakkers gebruiken uitsluitend natuurlijke ingrediënten. Geen kunstmatige toevoegingen, alleen meel, water, zout en onze eigen gekweekte zuurdesemcultuur. Dit resulteert in brood met een knapperige korst, een luchtige structuur en een ongeëvenaarde diepte in smaak.
+                    </p>
+<ul class="space-y-4 pt-4">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-body-md text-body-md text-on-surface">100% Natuurlijke ingrediënten</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-body-md text-body-md text-on-surface">Traditionele steenoven technieken</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-body-md text-body-md text-on-surface">Lokaal verbouwde granen</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Onze Specialiteiten Section -->
+<section class="py-32 bg-background relative overflow-hidden" id="specialiteiten">
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<header class="text-center mb-24 max-w-2xl mx-auto reveal">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-[0.2em] block mb-4">Ambachtelijk &amp; Vers</span>
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg mb-6">Onze Specialiteiten</h2>
+<div class="w-16 h-px bg-outline/20 mx-auto mb-8"></div>
+<p class="font-body-lg text-body-lg text-on-surface-variant italic">
+                    Van ons karakteristieke zuurdesem tot verfijnd luxe gebak; elke creatie vertelt een verhaal van traditie, geduld en de allerbeste ingrediënten.
+                </p>
+</header>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter mb-24 reveal">
+<!-- Product 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant/20 overflow-hidden flex flex-col group cursor-pointer hover:shadow-xl transition-all">
+<div class="aspect-[16/9] overflow-hidden relative">
+<img alt="Klassiek zuurdesembrood" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNVD8OfXY3A0BldC-eiU-8fx-ShPXvSNAsxxbdvcXduk_cuSBGSiRHJjTAm2WpoMj2nZhOhV0YRjU2rDOEOjt4DiaT8cqxDVUhy3OzCFMfrdeOBf9S3oEGDo_ryp2SxicWHyfGmnZJp6VEnvK2OH4ICVK3Nt6ZYfdC12JrwmZ22A8its1BtCWa_r4Pl3uJI8mR2SkEx75xHyD9uWKt8SRWpiRkcqp4WarXa4jCzqoOuxaS76MuyULs"/>
+<div class="absolute top-4 right-4 bg-primary text-white px-3 py-1 font-label-sm text-label-sm uppercase">Klassieker</div>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-baseline mb-4">
+<h3 class="font-headline-sm text-headline-sm">Klassiek Zuurdesem</h3>
+<span class="font-body-md text-body-md text-primary font-bold">€ 4,95</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">48 uur gerijpt met onze eigen huiscultuur. Een knapperige korst met een luchtige, lichtzure binnenkant.</p>
+</div>
+</div>
+<!-- Product 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant/20 overflow-hidden flex flex-col group cursor-pointer hover:shadow-xl transition-all">
+<div class="aspect-[16/9] overflow-hidden relative">
+<img alt="Volkoren oergranenbrood" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiMFYScDY53mtRt_141k-RoEFAgY_4rOUzBJDJU2-Z7L8fQkhZUTXn9WtIx0X0GIeHJZzmNdeEJyVztmyKQlaeUsaC1b_9EFP8AR5T8mrQd23R-McRNnKSosff3xiY9lZw9SApkEYGLMth22eIn-DaNGr65-MvnPdmkNtFrFe6_SOXiBTlFHG6jqXBo34d38VJspiTrJSjumpHMNKlvhnIS8aA1XI1qYv4_D8hEyNM6jECfwkJqFR9"/>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-baseline mb-4">
+<h3 class="font-headline-sm text-headline-sm">Volkoren Oergranen</h3>
+<span class="font-body-md text-body-md text-primary font-bold">€ 5,25</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Een voedzaam mengsel van spelt, emmer en eenkoorn. Rijk aan vezels en vol van karakteristieke nootachtige smaak.</p>
+</div>
+</div>
+</div>
+<!-- Specialties Column List -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter mb-32 reveal">
+<div class="bg-white border border-outline-variant/10 p-6 flex flex-col items-center text-center group cursor-pointer hover:shadow-lg transition-all">
+<div class="aspect-square w-full overflow-hidden mb-6">
+<img alt="Bossche Bol" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYE1pfCIZ9zFvVCs_yN2Iz_kGEA_LH4IRe3FdTcAJlJiWGu6_4J44fqR4yP21TnNunRg4Z0zspzWW6T4jBz1A0lv2Gw6GimTbJFzakAbLF6BqezFrZpgJs8JBmk5S7bBbOax2pb3hF-4wdEpBPWygIBHmAkOnqKdPpFZTrgThDF1jd5woF8_d9uzKV2j6mPo3rr6ojqVEiCEI2RHAiTlrXgsc61fgIWPOU07UON_4-IjnQKp4iXVCb"/>
+</div>
+<h4 class="font-headline-sm text-[20px] mb-2">Bossche Bol</h4>
+<p class="font-label-md text-primary">€ 3,95</p>
+</div>
+<div class="bg-white border border-outline-variant/10 p-6 flex flex-col items-center text-center group cursor-pointer hover:shadow-lg transition-all">
+<div class="aspect-square w-full overflow-hidden mb-6">
+<img alt="Fruittaartje" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSfjIRF1D805bH5gFnlZeu4YbvATBGIa7Q0GI0CYIDk_fzk1qOx1KifJK9yEjNvNxTPSVyNqpTOiqe_LmaTvDsfETvtXoLwcabKejw1NSQy543n8i55KdsyP4-B1mVFcidBZP7qI6sb0z32GzSNffGd_j8tEuNNFQqv-rzhuHbtnBiW0vE6Xpstv08UyN61VPyZ-B5jQ-o5tucKSEOuIXiTX_jIdXudSvm5mXluiSYPp6sEsaAOHWe"/>
+</div>
+<h4 class="font-headline-sm text-[20px] mb-2">Fruittaartje</h4>
+<p class="font-label-md text-primary">€ 4,50</p>
+</div>
+<div class="bg-white border border-outline-variant/10 p-6 flex flex-col items-center text-center group cursor-pointer hover:shadow-lg transition-all">
+<div class="aspect-square w-full overflow-hidden mb-6">
+<img alt="Eclair" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzoLgAaAGGOTj0wKmMrUxGDxEHZD7YS2NIY--ybnZqV0AXnOdGzR7LuoijDqLZ7ZYo7JXVbe2Qr7T8DaEuMVIc8GQofUwtp7kKmD4koX960lAuimc3zKFG_mRsBCP15HMEPvfM7VK-3DGKLO2TVtFbuH7mkU032cc_ytJ6dq_vo13kS__8px8COjZNKXwUhUoM-1LJ3KSqQFW04E9PhwRy5cvuq2bO-C8lRQh_pwMqHn9xvbrFB0g1"/>
+</div>
+<h4 class="font-headline-sm text-[20px] mb-2">Eclair</h4>
+<p class="font-label-md text-primary">€ 3,50</p>
+</div>
+</div>
+<!-- Seasonal Highlight: Herfstverwennerij -->
+<div class="bg-surface-container p-8 md:p-12 rounded-lg relative overflow-hidden reveal">
+<div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<div class="lg:col-span-5">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-[0.2em] block mb-4">Special van de Maand</span>
+<h2 class="font-headline-md text-headline-md mb-6">Herfstverwennerij</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8 italic">
+                            "Proef de herfst in onze speciaal ontwikkelde pompoen-kaneel broodjes en hartige quiches met bospaddenstoelen."
+                        </p>
+<div class="flex flex-col gap-6">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary p-2 bg-primary-fixed rounded-full">bakery_dining</span>
+<div>
+<h4 class="font-label-md text-label-md font-bold mb-1">Pompoen Brioche</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Zacht, boterig en licht gekruid.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary p-2 bg-primary-fixed rounded-full">restaurant</span>
+<div>
+<h4 class="font-label-md text-label-md font-bold mb-1">Bospaddenstoelen Quiche</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Met verse tijm en Gruyère kaas.</p>
+</div>
+</div>
+</div>
+<a href="#contact" class="inline-block mt-10 border border-secondary text-secondary px-8 py-3 rounded-lg font-label-md text-label-md uppercase tracking-widest hover:bg-secondary hover:text-white transition-all">
+                            Ontdek het Seizoen
+                        </a>
+</div>
+<div class="lg:col-span-7 grid grid-cols-2 gap-4">
+<div class="aspect-[4/5]">
+<img alt="Pompoen brioche" class="w-full h-full object-cover rounded-sm shadow-sm" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsGVPw3t1ilPS3pABHJYRGm7sXmVmDPHePnT-1Uh9lend7ZK4XbM-v5zuv5zlzL3bGKTPU3pmikcIb-BkNoH43MdxZsl4JZo-zW_Pmqk3P2UZV3nap1D_3h8ZPSsMnWsr2dUhxGAzjLLlifdcOQiLuu4xaovTyeF9x0-Fxbfn7jlwC23nbvNszshRw1GxGA6yTMoi57fDDvtD6Y7JmvwZb3GesKp4sWrpo8Uqf6UNlBgul6B4f8SKx"/>
+</div>
+<div class="aspect-[4/5] mt-8">
+<img alt="Bospaddenstoelen quiche" class="w-full h-full object-cover rounded-sm shadow-sm" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFHLhh9CmEZSDSweJUV6lwd23RRSzcBRqZmuPCXub3gFF1F0syhtDfGCOBk27ngNVhlEJ4Ux5_i0hCbFqPuCs7XVEJJ0CdtD3eKrvYbUq8ymfRmyCo4i01caJxQYZPk5BCCp9kl2soQZvrgSnu4i1LDZ1HuelasMuDTWYSxda1REnQI035mayZ2SMdcHQPM4G2hQys_YtdDaYLLSOCrI6_rWd2mPWmjKTuc3xgZTFeyLD8_gnxLsJU"/>
+</div>
+</div>
+</div>
+<div class="absolute -top-20 -right-20 w-64 h-64 bg-primary-fixed-dim/20 rounded-full blur-3xl"></div>
+</div>
+</div>
+</section>
+<!-- Ons Verhaal Section -->
+<section class="py-32 bg-surface-container-low border-y border-outline/10" id="over-ons">
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
+<div class="lg:col-span-5 space-y-12 reveal">
+<header>
+<span class="font-label-md text-label-md text-primary uppercase tracking-[0.3em] mb-4 block">Maikel Vermeulen</span>
+<h2 class="font-headline-md text-headline-md text-on-background">Het Verhaal van de Meesterbakker</h2>
+</header>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                        Sinds 2025 staat Maikel Vermeulen aan het roer van 't Broodhuysje. Hij nam de bakkerij over van zijn ouders, Hans en Tisia. Vader Hans begon de zaak in 1980 en bakt sinds 1996 op de vertrouwde plek aan de Maastrichterweg. Als tweede generatie zet Maikel de familietraditie voort, met hetzelfde geduld en vakmanschap waarmee het ooit begon.
+                    </p>
+<div class="pt-4">
+<span class="gold-script text-4xl block mb-2">Maikel Vermeulen</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-outline">Meesterbakker &amp; Eigenaar</span>
+</div>
+</div>
+<div class="lg:col-span-7 reveal">
+<div class="relative p-4 bg-white shadow-xl rotate-2">
+<img alt="Hans Vermeulen, oprichter van 't Broodhuysje" class="w-full h-auto grayscale hover:grayscale-0 transition-all duration-700" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPJBnxigdt9_nx_5MiqZH-wlBndnB8gNUkUwzcVRMNmk37WTgD8E7uDpqd2N6_nJHlAhK1i87yIvClL8ASs-2YYfWz2KaVIrnzeyqVQgLmZkbfrHPjkg5JRGlsx_FU-u072xW1q_xU7nzKcBbFuWXdiiN7n0VDkam05Lk6H7XlOMoyJ9H1aMS0z2K4zaJw09j2Cp3iEH3JVljwrJ_9uoeFTk1AdZ-c5JaJKS3V15f1rDCf-e-CQOWb"/>
+<p class="font-label-sm text-label-sm mt-4 text-center text-outline italic">Hans Vermeulen begon de bakkerij in 1980.</p>
+</div>
+</div>
+</div>
+<!-- Onze Filosofie Three Pillars -->
+<div class="mt-32">
+<div class="text-center mb-20 reveal">
+<h3 class="font-display-lg text-display-lg-mobile md:text-display-lg mb-4">Onze Filosofie</h3>
+<p class="font-label-md text-label-md text-primary uppercase tracking-[0.3em]">Het Ambacht in Drie Pijlers</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-white p-12 fine-border reveal flex flex-col items-center text-center group hover:bg-surface-container transition-colors duration-500">
+<span class="material-symbols-outlined text-primary text-5xl mb-8 group-hover:scale-110 transition-transform">nature</span>
+<h4 class="font-headline-sm text-headline-sm mb-6">Puur Natuur</h4>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                            Geen toevoegingen, geen haast. Wij werken uitsluitend met biologische granen van lokale molens en bronwater uit de regio.
+                        </p>
+</div>
+<div class="bg-white p-12 fine-border reveal flex flex-col items-center text-center group hover:bg-surface-container transition-colors duration-500">
+<span class="material-symbols-outlined text-primary text-5xl mb-8 group-hover:scale-110 transition-transform">fireplace</span>
+<h4 class="font-headline-sm text-headline-sm mb-6">De Steenoven</h4>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                            De ziel van onze bakkerij is de authentieke houtgestookte steenoven. De intense hitte zorgt voor een ongeëvenaarde korst.
+                        </p>
+</div>
+<div class="bg-white p-12 fine-border reveal flex flex-col items-center text-center group hover:bg-surface-container transition-colors duration-500">
+<span class="material-symbols-outlined text-primary text-5xl mb-8 group-hover:scale-110 transition-transform">schedule</span>
+<h4 class="font-headline-sm text-headline-sm mb-6">Lange Rusttijden</h4>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                            Tijd is ons belangrijkste ingrediënt. Ons deeg rust tot wel 48 uur, waardoor natuurlijke aroma's zich ontwikkelen.
+                        </p>
+</div>
+</div>
+</div>
+<!-- Full Quote -->
+<div class="mt-40 max-w-4xl mx-auto text-center relative z-10 reveal">
+<span class="material-symbols-outlined text-primary-container text-6xl mb-12" style="font-variation-settings: 'FILL' 1;">format_quote</span>
+<blockquote class="font-display-lg text-display-lg-mobile md:text-display-lg italic text-on-background mb-12 leading-tight">
+                    "Echt brood spreekt niet alleen tot de maag, maar vertelt een verhaal over het land, het weer en de handen die het hebben gevormd."
+                </blockquote>
+<div class="w-16 h-px bg-outline mx-auto mb-6"></div>
+<p class="gold-script text-5xl">Maikel Vermeulen</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Google Reviews -->
+<section class="py-32 bg-surface px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<header class="text-center mb-20 max-w-2xl mx-auto reveal">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-[0.2em] block mb-4">Wat onze klanten zeggen</span>
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg mb-8">Geliefd in Valkenswaard</h2>
+<!-- Google-samenvatting: pas het cijfer en aantal aan naar de werkelijke waarden -->
+<div class="inline-flex items-center gap-4 bg-white border border-outline-variant/20 rounded-lg px-6 py-4 shadow-sm">
+<span class="font-headline-md text-headline-md text-on-surface leading-none">4,6</span>
+<div class="flex flex-col items-start">
+<div class="flex text-primary-container" aria-label="4,6 van de 5 sterren">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">star_half</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Gebaseerd op 78 Google-beoordelingen</span>
+</div>
+</div>
+</header>
+<!-- Echte Google-reviews -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter reveal">
+<figure class="bg-white border border-outline-variant/10 p-8 flex flex-col fine-border">
+<div class="flex text-primary-container mb-6" aria-label="5 van de 5 sterren">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<blockquote class="font-body-lg text-body-lg text-on-surface-variant italic leading-relaxed grow">
+                        "Waar haal je in de ochtend om half acht heerlijk vers brood? Hier natuurlijk, want dan zijn ze al open! Wist u dat de chocolade bollen ter plekke gevuld worden met verse slagroom? Super lekker!"
+                    </blockquote>
+<figcaption class="flex items-center gap-4 mt-8 pt-6 border-t border-outline-variant/20">
+<span class="w-11 h-11 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-label-md" aria-hidden="true">GJ</span>
+<div>
+<p class="font-label-md text-label-md text-on-surface not-italic">Geert Jansen</p>
+<p class="font-label-sm text-label-sm text-outline">Google-review</p>
+</div>
+</figcaption>
+</figure>
+<figure class="bg-white border border-outline-variant/10 p-8 flex flex-col fine-border">
+<div class="flex text-primary-container mb-6" aria-label="5 van de 5 sterren">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<blockquote class="font-body-lg text-body-lg text-on-surface-variant italic leading-relaxed grow">
+                        "Heerlijk brood, goede bakker en vriendelijk personeel! Kan iedereen aanraden om hier een stukje voor om te rijden! Wij doen het met plezier en worden nooit teleurgesteld. Ga zo door!"
+                    </blockquote>
+<figcaption class="flex items-center gap-4 mt-8 pt-6 border-t border-outline-variant/20">
+<span class="w-11 h-11 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-label-md" aria-hidden="true">B</span>
+<div>
+<p class="font-label-md text-label-md text-on-surface not-italic">Bjorn</p>
+<p class="font-label-sm text-label-sm text-outline">Google-review</p>
+</div>
+</figcaption>
+</figure>
+<figure class="bg-white border border-outline-variant/10 p-8 flex flex-col fine-border">
+<div class="flex text-primary-container mb-6" aria-label="5 van de 5 sterren">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<blockquote class="font-body-lg text-body-lg text-on-surface-variant italic leading-relaxed grow">
+                        "Hier hebben ze de allerlekkerste Bossche bollen, nog lekkerder dan in Den Bosch. Ze worden pas gevuld net voordat je ze meeneemt. Zeker de moeite waard om hiervoor een stuk verder te rijden."
+                    </blockquote>
+<figcaption class="flex items-center gap-4 mt-8 pt-6 border-t border-outline-variant/20">
+<span class="w-11 h-11 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-label-md" aria-hidden="true">M</span>
+<div>
+<p class="font-label-md text-label-md text-on-surface not-italic">Marian</p>
+<p class="font-label-sm text-label-sm text-outline">Google-review</p>
+</div>
+</figcaption>
+</figure>
+</div>
+<div class="text-center mt-16 reveal">
+<!-- Vervang de href door de directe Google-reviewlink van 't Broodhuysje -->
+<a class="inline-flex items-center gap-3 border border-secondary text-secondary px-10 py-4 rounded-lg font-label-md text-label-md uppercase tracking-widest hover:bg-secondary hover:text-white transition-all" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%27t+Broodhuysje+Valkenswaard">
+                    Lees alle reviews op Google <span class="material-symbols-outlined text-sm">north_east</span>
+</a>
+</div>
+</section>
+<!-- Bezoek de Bakkerij Section -->
+<section class="py-32 bg-surface overflow-hidden" id="contact">
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center mb-24 reveal">
+<div class="md:col-span-5 flex flex-col gap-6">
+<span class="font-label-md text-label-md text-primary uppercase tracking-[0.2em]">Contact &amp; Locatie</span>
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface leading-tight italic">
+                        Kom de geur van <span class="text-primary font-bold">versgebakken</span> traditie ervaren.
+                    </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">
+                        In het hart van Valkenswaard verwelkomen wij u elke ochtend met ambachtelijke liefde en de fijnste ingrediënten.
+                    </p>
+</div>
+<div class="md:col-span-7 relative">
+<div class="aspect-[4/5] md:aspect-video border border-outline-variant/30 overflow-hidden p-4">
+<img alt="Interieur van de bakkerij" class="w-full h-full object-cover" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-RwdKERnwVHC1qXbFadoE3dMdKZfqqkC54AQtCmYnfH_gNymxwS2n0cXUxcvKPgtB-5wRzYzP7cl3o0Zl6LACLHMnC-zapEKEVzcbsosHSPQYD7Czsc26BO_udmsZA65YZokOdE9htkVuNQrpPZQFZ00DQ9v39BX4bF1G5TE-HzVy3dh2HcrlsImpwZM04jODCYXbOvXPcNTkgkvRPf4kxF_Iebq7tSux4uDzJDS6xVB2ZhMZUMcj"/>
+</div>
+<div class="absolute -bottom-8 -left-8 hidden lg:block border border-outline-variant/30 bg-surface p-8 max-w-xs shadow-lg">
+<p class="font-headline-sm text-headline-sm italic mb-2">"Gemaakt met geduld"</p>
+<p class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">— Onze Belofte</p>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start mt-40">
+<div class="space-y-12 reveal">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="space-y-4">
+<h4 class="font-headline-sm text-headline-sm mb-8 flex items-center gap-3 whitespace-nowrap">
+<span class="material-symbols-outlined text-primary shrink-0">schedule</span>
+                                Openingstijden
+                            </h4>
+<ul class="space-y-2 text-on-surface-variant font-body-lg">
+<li class="flex justify-between border-b border-outline-variant/30 py-2"><span>Di - Vr</span> <span>07:30 - 17:00</span></li>
+<li class="flex justify-between border-b border-outline-variant/30 py-2"><span>Zaterdag</span> <span>07:30 - 16:00</span></li>
+<li class="flex justify-between py-2 text-primary/50"><span>Zo &amp; Ma</span> <span class="italic">Gesloten</span></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h4 class="font-headline-sm text-headline-sm mb-8 flex items-center gap-3 whitespace-nowrap">
+<span class="material-symbols-outlined text-primary shrink-0">location_on</span>
+                                Contact
+                            </h4>
+<ul class="space-y-2 text-on-surface-variant font-body-lg">
+<li class="flex justify-between gap-4 border-b border-outline-variant/30 py-2"><span class="shrink-0">Adres</span> <span class="text-right">Maastrichterweg 28<br/>5554 EG Valkenswaard</span></li>
+<li class="flex justify-between gap-4 border-b border-outline-variant/30 py-2"><span class="shrink-0">Telefoon</span> <a class="text-right hover:text-primary transition-colors" href="tel:+31402045303">040 - 204 53 03</a></li>
+<li class="flex justify-between gap-2 py-2"><span class="shrink-0">E-mail</span> <a class="text-right hover:text-primary transition-colors min-w-0 break-words" href="mailto:info@broodhuysje.nl">info@broodhuysje.nl</a></li>
+</ul>
+</div>
+</div>
+<div class="aspect-video w-full border border-outline-variant/30 relative overflow-hidden group">
+<iframe title="Locatie 't Broodhuysje op de kaart" class="w-full h-full grayscale contrast-75 group-hover:grayscale-0 transition-all duration-700" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Maastrichterweg+28,+5554+EG+Valkenswaard&output=embed"></iframe>
+<div class="absolute bottom-6 right-6">
+<a class="bg-surface-container-lowest px-6 py-3 font-label-md text-label-md border border-outline-variant/30 flex items-center gap-2 hover:bg-primary-container hover:text-white transition-all shadow-sm" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=Maastrichterweg+28,+5554+EG+Valkenswaard">
+                                PLAN UW ROUTE <span class="material-symbols-outlined text-sm">north_east</span>
+</a>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low p-8 md:p-12 border border-outline-variant/30 reveal">
+<h3 class="font-headline-md text-headline-md italic mb-8">Stuur een Bericht</h3>
+<form id="contact-form" class="space-y-8" novalidate>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="space-y-2">
+<label for="cf-naam" class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">Naam</label>
+<input id="cf-naam" name="naam" required autocomplete="name" class="w-full bg-transparent border-b border-outline-variant/40 focus:border-primary focus:ring-0 py-3 transition-colors outline-none" placeholder="Uw volledige naam" type="text"/>
+</div>
+<div class="space-y-2">
+<label for="cf-email" class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">E-mailadres</label>
+<input id="cf-email" name="email" required autocomplete="email" class="w-full bg-transparent border-b border-outline-variant/40 focus:border-primary focus:ring-0 py-3 transition-colors outline-none" placeholder="adres@email.nl" type="email"/>
+</div>
+</div>
+<div class="space-y-2">
+<label for="cf-bericht" class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">Uw Bericht</label>
+<textarea id="cf-bericht" name="bericht" required class="w-full bg-transparent border-b border-outline-variant/40 focus:border-primary focus:ring-0 py-3 transition-colors outline-none resize-none" placeholder="Schrijf hier uw bericht..." rows="4"></textarea>
+</div>
+<button class="w-full bg-secondary text-white py-5 font-label-md text-label-md uppercase tracking-[0.2em] hover:bg-primary transition-all shadow-lg" type="submit">
+                            Verstuur Bericht
+                        </button>
+<p id="form-status" class="font-body-md text-body-md text-primary hidden" role="status" aria-live="polite"></p>
+</form>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-surface-container py-16 border-t border-outline/10">
+<div class="flex flex-col items-center justify-center space-y-8 px-margin-mobile md:px-margin-desktop text-center max-w-container-max mx-auto">
+<img src="Images/logo.png" alt="'t Broodhuysje — Maikel Vermeulen, Valkenswaard" class="w-full max-w-[240px] h-auto rounded-lg shadow-sm"/>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Privacybeleid</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Algemene Voorwaarden</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Cookies</a>
+</div>
+<div class="tonal-divider w-full max-w-xs"></div>
+<p class="font-body-md text-body-md text-secondary">© <span id="jaar">2024</span> 't Broodhuysje. Ambachtelijk gebakken met passie door Maikel Vermeulen.</p>
+<div class="flex space-x-6">
+<a class="w-10 h-10 border border-outline-variant rounded-full flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary transition-all" href="https://www.facebook.com/BroodhuysjeValkenswaard/?locale=nl_NL" target="_blank" rel="noopener" aria-label="Volg 't Broodhuysje op Facebook">
+<svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4" aria-hidden="true"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.9 3.78-3.9 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.44 2.9h-2.34V22c4.78-.76 8.44-4.92 8.44-9.94Z"/></svg>
+</a>
+</div>
+</div>
+</footer>
+<script>
+    // --- Scroll-reveal animaties ---
+    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // --- Mobiel menu ---
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = menuToggle.querySelector('.material-symbols-outlined');
+    function closeMenu() {
+        mobileMenu.classList.add('hidden');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', 'Menu openen');
+        menuIcon.textContent = 'menu';
+    }
+    menuToggle.addEventListener('click', () => {
+        const isOpen = !mobileMenu.classList.contains('hidden');
+        if (isOpen) {
+            closeMenu();
+        } else {
+            mobileMenu.classList.remove('hidden');
+            menuToggle.setAttribute('aria-expanded', 'true');
+            menuToggle.setAttribute('aria-label', 'Menu sluiten');
+            menuIcon.textContent = 'close';
+        }
+    });
+    mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+
+    // --- Actieve navigatie markeren tijdens scrollen ---
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('header nav ul li a');
+    function updateActiveNav() {
+        let current = '';
+        sections.forEach(section => {
+            if (window.scrollY >= (section.offsetTop - 150)) {
+                current = section.getAttribute('id');
+            }
+        });
+        navLinks.forEach(link => {
+            link.classList.remove('text-primary', 'border-b-2', 'border-primary', 'pb-1');
+            link.classList.add('text-on-surface-variant');
+            if (current && link.getAttribute('href') === '#' + current) {
+                link.classList.remove('text-on-surface-variant');
+                link.classList.add('text-primary', 'border-b-2', 'border-primary', 'pb-1');
+            }
+        });
+    }
+    window.addEventListener('scroll', updateActiveNav, { passive: true });
+    updateActiveNav();
+
+    // --- Contactformulier ---
+    const form = document.getElementById('contact-form');
+    const status = document.getElementById('form-status');
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const naam = form.naam.value.trim();
+        const email = form.email.value.trim();
+        const bericht = form.bericht.value.trim();
+        status.classList.remove('hidden', 'text-error');
+
+        if (!naam || !email || !bericht) {
+            status.textContent = 'Vul alstublieft alle velden in.';
+            status.classList.add('text-error');
+            return;
+        }
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            status.textContent = 'Vul alstublieft een geldig e-mailadres in.';
+            status.classList.add('text-error');
+            return;
+        }
+        // Opent de e-mailclient met een vooraf ingevuld bericht naar de bakkerij.
+        const onderwerp = encodeURIComponent('Bericht via website van ' + naam);
+        const body = encodeURIComponent(bericht + '\n\nMet vriendelijke groet,\n' + naam + '\n' + email);
+        window.location.href = 'mailto:info@broodhuysje.nl?subject=' + onderwerp + '&body=' + body;
+        status.textContent = 'Bedankt, ' + naam + '! Uw e-mailprogramma wordt geopend om het bericht te versturen.';
+        form.reset();
+    });
+
+    // --- Jaartal in footer ---
+    document.getElementById('jaar').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
